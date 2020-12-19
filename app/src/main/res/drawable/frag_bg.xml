@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    shape是android开发中常用的一种drawable，它可以生成简单的图片或者背景色，
+    相比于图片体积非常小，并且是android开发人员自己通过代码来实现
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--corners 表示角度，其中 radius 优先级最低，会被其他四个属性覆盖-->
+    <corners android:radius="10dp"></corners>
+    <!--solid标签: shape图形背景色-->
+    <solid android:color="#443d9140"></solid>
+</shape>

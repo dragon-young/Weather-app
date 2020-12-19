@@ -1,0 +1,38 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="todattext">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!--
+        android:layout_weight的真实含义是:一旦View设置了该属性(假设有效的情况下)，
+        那么该 View的宽度等于原有宽度(android:layout_width)加上剩余空间的占比
+
+        android:drawablePadding
+
+        android:gravity是设置自身内部元素的对齐方式
+     -->
+    <style name="indextext">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+
+
+</resources>
