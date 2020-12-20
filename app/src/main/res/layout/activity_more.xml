@@ -129,4 +129,15 @@
         android:layout_below="@id/more_line4"
         android:drawablePadding="20dp"
         android:padding="10dp"/>
+
+    <TextView
+        android:id="@+id/more_tv_snack"
+        android:text="贪吃蛇"
+        android:textSize="18sp"
+        android:drawableLeft="@mipmap/tianqi1"
+        android:layout_below="@id/more_tv_share"
+        android:padding="10dp"
+        android:drawablePadding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

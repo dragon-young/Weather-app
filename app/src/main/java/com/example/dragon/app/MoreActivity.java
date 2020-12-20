@@ -16,13 +16,14 @@ import android.widget.Toast;
 
 import com.example.dragon.app.db.DBManger;
 import com.example.dragon.app.game.Game2048;
+import com.example.dragon.app.game.GameSnack;
 
 import static java.util.ResourceBundle.clearCache;
 
 
 public class MoreActivity extends AppCompatActivity implements View.OnClickListener{
 
-    TextView bgTv,cacheTv,versionTv,shareTv;
+    TextView bgTv,cacheTv,versionTv,shareTv,snackTv;
     RadioGroup exbgRg;
     ImageView backIv;
     private SharedPreferences pref;
@@ -43,12 +44,15 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         backIv = (ImageView) findViewById(R.id.more_iv_back);
         /* 改变壁纸的按钮选项 */
         exbgRg = (RadioGroup) findViewById(R.id.more_rg);
+        /* 进入贪吃蛇游戏界面的选项 */
+        snackTv = (TextView) findViewById(R.id.more_tv_snack);
 
         /* 为他们都设置监听按钮 */
         bgTv.setOnClickListener(this);
         cacheTv.setOnClickListener(this);
         shareTv.setOnClickListener(this);
         backIv.setOnClickListener(this);
+        snackTv.setOnClickListener(this);
 
         pref = getSharedPreferences("bg_pref", MODE_PRIVATE);
         String versionName = getVersionName();
@@ -66,21 +70,27 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
                 clearCache();
                 break;
             case R.id.more_tv_share:
-                shareSoftwareMsg("dragon天气app是一款超萌超可爱的天气预报软件，画面简约，播报天气情况非常精准，快来下载吧！");
+                shareSoftwareMsg("艺简天气app是一款超萌超可爱的天气预报软件，画面简约，播报天气情况非常精准，快来下载吧！");
                 break;
             case R.id.more_tv_exchangebg:
                 intent.setClass(this, Game2048.class);
                 break;
+            case R.id.more_tv_snack:
+                intent.setClass(this, GameSnack.class);
         }
         startActivity(intent);
     }
 
     private void shareSoftwareMsg(String s) {
         /* 分享软件的函数*/
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT,s);
-        startActivity(Intent.createChooser(intent,"天气"));
+
+        Intent shareIntent = new Intent();
+
+        shareIntent.setAction(Intent.ACTION_SEND);
+
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT,s);
+        startActivity(Intent.createChooser(shareIntent,"艺简天气"));
     }
 
     private void clearCache() {
